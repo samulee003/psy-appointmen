@@ -1,0 +1,62 @@
+<!-- pages/doctor/index.wxml - 醫生端首頁界面 -->
+
+<view class="container">
+  <view class="header">
+    <view class="avatar-container">
+      <image class="avatar" src="{{doctorInfo.avatar || '/images/default_avatar.png'}}"></image>
+    </view>
+    <view class="doctor-info">
+      <text class="doctor-name">{{doctorInfo.name}}</text>
+      <text class="doctor-title">{{doctorInfo.title || '心理諮詢師'}}</text>
+    </view>
+  </view>
+
+  <view class="stats-container">
+    <view class="stats-title">預約統計</view>
+    <view class="stats-grid">
+      <view class="stats-item">
+        <text class="stats-value">{{appointmentStats.today}}</text>
+        <text class="stats-label">今日預約</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-value">{{appointmentStats.tomorrow}}</text>
+        <text class="stats-label">明日預約</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-value">{{appointmentStats.thisWeek}}</text>
+        <text class="stats-label">本週預約</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-value">{{appointmentStats.thisMonth}}</text>
+        <text class="stats-label">本月預約</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="function-container">
+    <view class="function-title">功能選單</view>
+    <view class="function-grid">
+      <view class="function-item" bindtap="navigateToGenerateTimeslots">
+        <image class="function-icon" src="/images/icon_generate.png"></image>
+        <text class="function-label">批量生成時段</text>
+      </view>
+      <view class="function-item" bindtap="navigateToAppointmentList">
+        <image class="function-icon" src="/images/icon_list.png"></image>
+        <text class="function-label">預約列表</text>
+      </view>
+      <view class="function-item" bindtap="navigateToExportAppointments">
+        <image class="function-icon" src="/images/icon_export.png"></image>
+        <text class="function-label">導出預約表</text>
+      </view>
+      <view class="function-item" bindtap="navigateToTimeslotManagement">
+        <image class="function-icon" src="/images/icon_manage.png"></image>
+        <text class="function-label">時段管理</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加載中...</text>
+  </view>
+</view>
